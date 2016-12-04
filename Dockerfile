@@ -3,9 +3,19 @@ FROM tombull/confd:alpine
 ADD ./conf.d /etc/confd/conf.d
 ADD ./templates /etc/confd/templates
 
-ADD ./conf_exec.sh /conf_exec.sh
-RUN chmod +x /conf_exec.sh
+# Needed to start associated mopper container
+RUN apk add --update docker
 
-VOLUME ["/mopper/rancher/inventory"]
+VOLUME ["/etc/conf.d/mopper"]
+VOLUME ["/var/run/docker.sock:/var/run/docker.sock"]
 
-ENTRYPOINT ["/conf_exec.sh"]
+# env defaults
+ENV CONFD_INTERVAL 1800
+ENV CONFD_LOG_LEVEL debug
+ENV CONFD_BACKEND rancher
+ENV CONFD_PREFIX /2015-07-25
+
+ADD ./run_confd.sh /run_confd.sh
+RUN chmod +x /run_confd.sh
+
+CMD ["/run_confd.sh"]

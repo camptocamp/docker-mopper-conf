@@ -1,6 +1,0 @@
-[template]
-src = "containers.tmpl"
-dest = "/mopper/rancher/inventory/containers"
-keys = [
-  "/containers",
-]
