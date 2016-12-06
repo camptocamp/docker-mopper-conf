@@ -7,7 +7,6 @@ ADD ./templates /etc/confd/templates
 RUN apk add --update docker
 
 VOLUME ["/etc/conf.d/mopper"]
-VOLUME ["/var/run/docker.sock:/var/run/docker.sock"]
 
 # env defaults
 ENV CONFD_INTERVAL 1800
