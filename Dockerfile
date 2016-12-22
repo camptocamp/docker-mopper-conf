@@ -13,6 +13,7 @@ ENV CONFD_INTERVAL 1800
 ENV CONFD_LOG_LEVEL debug
 ENV CONFD_BACKEND rancher
 ENV CONFD_PREFIX /2015-07-25
+ENV MOPPER_KEEP_VOLUMES_NAMED '**All**'
 
 ADD ./run_confd.sh /run_confd.sh
 RUN chmod +x /run_confd.sh
