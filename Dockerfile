@@ -9,7 +9,6 @@ RUN apk add --update docker
 VOLUME ["/etc/conf.d/mopper"]
 
 # env defaults
-ENV CONFD_INTERVAL 1800
 ENV CONFD_LOG_LEVEL debug
 ENV CONFD_BACKEND rancher
 ENV CONFD_PREFIX /2015-07-25
