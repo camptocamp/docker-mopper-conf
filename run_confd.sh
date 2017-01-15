@@ -1,5 +1,5 @@
 #!/bin/bash
-export CONFD_INTERVAL_IN_SECONDS="`docker run --rm camptocamp/duration $CONFD_INTERVAL`"
+export CONFD_INTERVAL_IN_SECONDS="`docker run --rm camptocamp/duration:1.0.0 $CONFD_INTERVAL`"
 echo "--------------------------------  Environments Variables -----------------------"
 echo "CONFD_INTERVAL:               $CONFD_INTERVAL"
 echo "CONFD_INTERVAL_IN_SECONDS:    $CONFD_INTERVAL_IN_SECONDS"
